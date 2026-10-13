@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420">
+<defs><linearGradient id="drink" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFB9D3"/><stop offset="1" stop-color="#F17EA9"/></linearGradient></defs>
+<path d="M55 72h210l-20 266c-3 39-29 57-85 57s-82-18-85-57Z" fill="#FFF9F7" stroke="#3A2529" stroke-width="10" stroke-linejoin="round"/>
+<path d="M65 170h190l-10 168c-3 39-29 57-85 57s-82-18-85-57Z" fill="url(#drink)"/>
+<path d="M65 170h190" stroke="#3A2529" stroke-width="10"/>
+<path d="M228 75c34-26 63-8 62 19-1 28-26 42-58 32" fill="none" stroke="#3A2529" stroke-width="10" stroke-linecap="round"/>
+<path d="M105 120c30 19 80 19 110 0" fill="none" stroke="#3A2529" stroke-width="9" stroke-linecap="round"/>
+<path d="M94 219c8-9 17-9 25 0s17 9 25 0" fill="none" stroke="#FFDDE9" stroke-width="7" stroke-linecap="round"/>
+<circle cx="112" cy="276" r="11" fill="#FFF3F7" opacity=".7"/>
+<circle cx="207" cy="306" r="8" fill="#FFF3F7" opacity=".55"/>
+</svg>

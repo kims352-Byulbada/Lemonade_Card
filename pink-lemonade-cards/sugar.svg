@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340">
+<path d="M62 94h176l-13 184c-2 28-29 43-75 43s-73-15-75-43Z" fill="#FFF9F7" stroke="#3A2529" stroke-width="9" stroke-linejoin="round"/>
+<path d="M62 94 91 48h118l29 46Z" fill="#F29AB8" stroke="#3A2529" stroke-width="9" stroke-linejoin="round"/>
+<path d="M111 77h78" stroke="#FFE6EF" stroke-width="9" stroke-linecap="round"/>
+<text x="150" y="157" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" font-weight="800" fill="#3A2529">SUGAR</text>
+<path d="M112 188h76M126 217h48" stroke="#E879A2" stroke-width="7" stroke-linecap="round"/>
+<circle cx="105" cy="252" r="5" fill="#E879A2"/><circle cx="150" cy="267" r="5" fill="#E879A2"/><circle cx="196" cy="250" r="5" fill="#E879A2"/>
+</svg>

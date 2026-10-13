@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #dff7ff;
+    color: #241638;
+    font-family: Arial, sans-serif;
+
+    /* [NEW] 카드 묶음을 화면 가운데에 */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+
+/* ========== [NEW] CARD STACK ========== */
+
+.stage {
+    position: relative;
+    width: min(560px, 100%);
+    height: min(680px, calc(100vh - 150px));
+    perspective: 1400px;
+}
+
+/* [CHANGED] 원래 header, section 의 100vh 스크롤 → 겹쳐진 카드 */
+.card {
+    position: absolute;
+    inset: 0;
+    padding: 36px 40px;
+    background: #FFF9F7;
+    border: 2px solid #241638;
+    border-radius: 16px;
+    overflow: hidden;
+
+    /* 위쪽 모서리를 축으로 넘어감 (MC 멘트 카드) */
+    transform-origin: 50% 0%;
+    transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.65s;
+}
+
+/* 이미 넘긴 카드: 위로 젖혀지며 사라짐 */
+.card.flipped {
+    transform: translateY(-75%) rotateX(85deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 아직 안 넘긴 카드: 뒤에 살짝 겹쳐 보임 (위치는 script.js 가 설정) */
+.card.waiting {
+    pointer-events: none;
+}
+
+
+/* TOP */
+
+header {
+    text-align: center;
+    cursor: pointer;
+}
+
+header p,
+.number,
+.instruction,
+.scroll {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* [CHANGED] 70px nowrap → 카드 폭에 맞게 줄바꿈 */
+h1 {
+    font-size: 48px;
+    line-height: 1;
+    margin: 40px 0 20px;
+}
+
+.intro-text {
+    font-size: 18px;
+}
+
+.hero {
+    width: 170px;
+    margin: 24px;
+}
+
+.scroll {
+    margin-top: 10px;
+    color: #E93672;
+}
+
+/* INGREDIENTS */
+
+.ingredients {
+    background: #FF72A8;
+    cursor: pointer;
+}
+
+/* [CHANGED] 60px → 40px */
+h2 {
+    font-size: 40px;
+    line-height: 1.05;
+    margin: 24px 0;
+}
+
+.ingredients ul {
+    max-width: 550px;
+    padding-left: 25px;
+}
+
+.ingredients li {
+    font-size: 20px;
+    padding: 10px 0;
+    border-bottom: 2px solid #241638;
+}
+
+/* INTERACTIVE STEPS */
+
+.step {
+    text-align: center;
+}
+
+.step .number {
+    text-align: left;
+}
+
+.instruction {
+    margin: 20px 0;
+}
+
+input {
+    display: none;
+}
+
+label {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+/* [CHANGED] 220px → 180px */
+label img {
+    width: 180px;
+    transition: 0.3s;
+}
+
+label:hover img {
+    transform: scale(1.08);
+}
+
+.success {
+    display: none;
+    color: #E93672;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* CLICKING THE GRAPHIC (원본 그대로) */
+
+input:checked ~ .success {
+    display: block;
+}
+
+input:checked + label img {
+    transform: scale(0.9) rotate(-8deg);
+}
+
+/* [NEW] 체크하면 안내 문구 흐리게 */
+.step:has(input:checked) .instruction {
+    opacity: 0.3;
+}
+
+/* METHOD */
+
+.method {
+    background: #D9C7FF;
+    cursor: pointer;
+}
+
+.method ol {
+    max-width: 600px;
+    padding-left: 40px;
+}
+
+.method li {
+    font-size: 22px;
+    padding: 12px 0;
+    border-bottom: 2px solid #241638;
+}
+
+/* FINAL */
+
+.final {
+    text-align: center;
+    background: #FF72A8;
+}
+
+.final img {
+    width: 190px;
+}
+
+.checks {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-weight: bold;
+}
+
+.final h3 {
+    font-size: 40px;
+}
+
+
+/* ========== [NEW] CONTROLS ========== */
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.controls button {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #241638;
+    border-radius: 50%;
+    background: #FFF9F7;
+    color: #241638;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #241638;
+    color: #FFF9F7;
+}
+
+#count {
+    min-width: 60px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* BOTTOM */
+
+footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+/* [NEW] 좁은 화면 (휴대폰) */
+
+@media (max-width: 480px) {
+    .card {
+        padding: 28px 24px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    label img {
+        width: 150px;
+    }
+}
